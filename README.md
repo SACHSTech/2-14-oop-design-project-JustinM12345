@@ -18,43 +18,44 @@ SwimEvents
 - 50, 100, 200 butterfly
 - 100, 200, 400 individual medley
 
-Person
-- General info about person
-- Gender, age, height, name, nationality
-
-eventTime
-- eventTime(String stroke, Int distance, String time)
-- Maybe use enums for all the different types of events
-
-SwimmerInfo
-- Collection of a swimmer's best times in each event
-- Store the info as eventTime objects
-
-Swimmer
-- General info about swimmer, inherits from person
-- Favourite stroke, enrolled events, favourite event, favourite distance, swimmerInfo
-- Has unique methods for the meet
-- IsSwimmingFavourite event
-- IsSwimmingFavourite stroke
-- Is swimming back to back events
-
-SwimMeetInformation
-- General info setting up the swim meet
-- Meet name, competition date, 
-- Contains collection swimmerList
-- Needs to have an event lineup 
-- Maybe create a method that can create the heat sheets for each event
-    - Have name of event, then list all swimmers sorted by speed, swimming that event
-
-SwimmerList
-- A collection of the swimmers at the competition
-- get total number of swimmers
-- get total number of swimmers in each event
-- get values for number of swimmers of each age, etc
-
-
 Focus on a single individual event for now
 - Each swimmer can have a list of times for that event, the object will have a method to search for their best time, maybe list their times from best to worst/recent to oldest
 - Event will generate heat sheet with their best times on the side
 - Swimmers will have their favourite swim listed
 - Be able to see how many swimmers are swimming their favourite event
+
+Person
+- Has general info about the person
+- Name, age, gender, height, nationality
+
+swimInfo
+- swimInfo(SwimmerID, eventName, date swam, time)
+- getters for each
+
+swimTimes
+- collection of swimInfos for a swimmer
+- getFastestTime, swimmer can have multiple times for same event, get fastest time
+- getSwimsForEvent, get the swims for a specific event
+- getAllSwims, lists every swim the swimmer ever swam
+
+clubInfo
+- swimmers are part of a club
+- 
+
+Swimmer
+- Inherits from person object
+- swimmerID, What club they are from, favourite event
+- getAgeGroup
+    - 10 and under, 11-12, 13-14, 15-16, 17-18, 18+
+- IsSwimmingFavourite
+- Swimmer will have a collection of swimTimes
+
+Event
+- Name of the event (100 freestyle)
+- Has a collection of swimmers that are going to swim that event
+- Produce psych sheets, lists swimmers from fastest to slowest with their best times listed on the side
+- How many swimmers are swimming their favourite swim
+- How many swimmers are enrolled
+- Have a way to sort by senior and junior swimmers?
+
+
