@@ -2,28 +2,19 @@ public class TimeConverter {
     
     public static String convertTime(double time){
         int totalSeconds = (int) time;
-        int seconds = (int)time;
-        int minutes;
-
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
         int milliseconds = (int) Math.round((time - totalSeconds) * 100);
 
-        if (seconds >= 60){
-            minutes = seconds / 60;
-            seconds = seconds % 60;
-            String strSeconds = String.valueOf(seconds);
-            if (strSeconds.length() == 1){
-                strSeconds = 0 + strSeconds;
+        String strMilliseconds = String.format("%02d", milliseconds);
+        String strSeconds = String.format("%02d", seconds);
 
-                return minutes + ":" + strSeconds + "." + milliseconds;
-            }
-
-            else{
-                return minutes + ":" + seconds + "." + milliseconds;
-            }
+        if (totalSeconds >= 60){
+            return minutes + ":" + strSeconds + "." + strMilliseconds;
         }
 
         else{
-            return seconds + "." + milliseconds;
+            return strSeconds + "." + strMilliseconds;
         }
     }
 }
