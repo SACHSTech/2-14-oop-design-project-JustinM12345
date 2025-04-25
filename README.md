@@ -31,6 +31,10 @@ Person
 swimInfo
 - swimInfo(SwimmerID, eventName, date swam, time)
 - getters for each
+- swim time will be in seconds categorized as a double.
+- Will need to create some type of time converter so 125.32 seconds is converted to 2:05.32 as a time
+- For now, set dates as a string in the format dd-mm-yy
+- If i have enough extra time the date can be converted into a better system that can sort times by date, get most recent swim, etc, but for now that's too much
 
 swimTimes
 - collection of swimInfos for a swimmer
