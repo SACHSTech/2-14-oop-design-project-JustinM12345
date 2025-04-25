@@ -29,4 +29,8 @@ public class SwimInfo {
     public double getTime(){
         return time;
     }
+
+    public String getFormattedTime(){
+        return TimeConverter.convertTime(time);
+    }
 }
