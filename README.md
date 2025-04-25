@@ -26,7 +26,7 @@ Focus on a single individual event for now
 
 Person
 - Has general info about the person
-- Name, age, gender, height, nationality
+- Name, age, gender, height (in centimeters), country
 
 swimInfo
 - swimInfo(SwimmerID, eventName, date swam, time)
