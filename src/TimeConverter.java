@@ -1,11 +1,11 @@
 public class TimeConverter {
     
     public static String convertTime(double time){
-        String strTime = Double.toString(time);
+        int totalSeconds = (int) time;
         int seconds = (int)time;
         int minutes;
 
-        String milliseconds = strTime.substring(strTime.length() - 3, strTime.length());
+        int milliseconds = (int) Math.round((time - totalSeconds) * 100);
 
         if (seconds >= 60){
             minutes = seconds / 60;
@@ -14,16 +14,16 @@ public class TimeConverter {
             if (strSeconds.length() == 1){
                 strSeconds = 0 + strSeconds;
 
-                return minutes + ":" + strSeconds + milliseconds;
+                return minutes + ":" + strSeconds + "." + milliseconds;
             }
 
             else{
-                return minutes + ":" + seconds + milliseconds;
+                return minutes + ":" + seconds + "." + milliseconds;
             }
         }
 
         else{
-            return seconds + milliseconds;
+            return seconds + "." + milliseconds;
         }
     }
 }
