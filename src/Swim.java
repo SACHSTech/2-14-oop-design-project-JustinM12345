@@ -1,11 +1,11 @@
-public class SwimInfo {
+public class Swim {
     
     private int swimmerID;
     private SwimEvent event;
     private String date;
     private double time;
 
-    public SwimInfo(int swimmerID, SwimEvent event, String date, double time){
+    public Swim(int swimmerID, SwimEvent event, String date, double time){
         
         this.swimmerID = swimmerID;
         this.event = event;
