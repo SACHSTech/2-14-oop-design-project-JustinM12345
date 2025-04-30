@@ -38,18 +38,22 @@ public class Swimmer extends Person{
         return fastestSwim;
     }
 
-    public ArrayList<Swim> sortFastToSlow(){
-        ArrayList<Swim> fastToSlow = new ArrayList<Swim>();
-        ArrayList copyArray = (ArrayList)swimHistory.clone(); 
-    }
+    // public ArrayList<Swim> sortFastToSlow(){
+    //     ArrayList<Swim> fastToSlow = new ArrayList<Swim>();
+    //     ArrayList copyArray = (ArrayList)swimHistory.clone(); 
+    // }
 
-    public ageGroup getAgeGroup(){
-        return null;
-    }
+    // public ageGroup getAgeGroup(){
+    //     return null;
+    // }
 
     // isSwimmingFavourite
 
     // Considered for pro program
 
-    
+    public String toString(){
+        return getFirstName() + " " + getLastName() + " | Age: " + getAge() 
+        + " | Nationality: " + getCountry() + " | Favourite Event: " + favEvent 
+        + " | Fastest Swim: " + getFastestSwim(favEvent);
+    }
 }
