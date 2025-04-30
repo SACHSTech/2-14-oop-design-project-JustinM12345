@@ -1,12 +1,16 @@
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println(SwimEvent.Freestyle_100);
+    public static void main(String[] args) throws IOException{
         
-        Swim testing = new Swim(1, SwimEvent.Freestyle_50, "05-30-24", 19.90);
+        ArrayList<Swimmer> swimmers = SwimFileReader.readSwimmers("swimmers.csv");
 
-        System.out.println(testing.getFormattedTime());
+        // Example: print all swimmers
+        for (Swimmer s : swimmers) {
+            System.out.println(s);
+        }
     }
     
 }
