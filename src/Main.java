@@ -29,6 +29,16 @@ public class Main {
         Event mens_100m_freestyle = new Event(SwimEvent.Freestyle_100, "Male");
 
         System.out.println(mens_100m_freestyle);
+
+        for (Swimmer s: swimmers){
+            mens_100m_freestyle.addSwimmer(s);
+
+            System.out.println("Added swimmer " + s.getName());
+        }
+
+        mens_100m_freestyle.listSwimmers();
+
+        
     }
     
 }

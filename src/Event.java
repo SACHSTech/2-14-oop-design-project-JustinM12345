@@ -42,7 +42,13 @@ public class Event {
         }
     }
 
+    public void createHeatSheet(){
+        
+    }
+
     public String toString(){
         return gender + " " + eventType;
     }
+
+
 }
