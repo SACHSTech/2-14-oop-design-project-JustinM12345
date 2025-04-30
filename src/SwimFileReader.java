@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class SwimFileReader {
     
-    public  ArrayList<Swimmer> readSwimmers (String swimmersFile) throws IOException{
-        BufferedReader br = new BufferedReader(new FileReader(swimmersFile));
+    public static ArrayList<Swimmer> readSwimmers (String swimmersFile) throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader("src/" + swimmersFile));
         ArrayList<Swimmer> swimmers = new ArrayList<>();
 
         String line;
@@ -22,7 +22,7 @@ public class SwimFileReader {
             int height = Integer.parseInt(parts[5]);
             String country = parts[6];
             SwimEvent favEvent = SwimEvent.valueOf(parts[7]);
-;
+
             Swimmer swimmer = new Swimmer(id, first, last, gender, year, height, country, favEvent);
             swimmers.add(swimmer);
 
@@ -32,5 +32,29 @@ public class SwimFileReader {
         return swimmers;
     }
 
+    public static ArrayList<Swim> readSwims (String swimsFile) throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader("src/" + swimsFile));
+        ArrayList<Swim> swims = new ArrayList<>();
 
+        String line;
+        br.readLine(); 
+
+        //Reads the swimmers.csv file until the end, seperating each value by their commas and creating a new object that categorizes it.
+        while ((line = br.readLine()) != null) {
+            String[] parts = line.split(",");
+
+            int id = Integer.parseInt(parts[0]);
+            SwimEvent event = SwimEvent.valueOf(parts[1]);
+            String date = parts[2];
+            double time = Double.parseDouble(parts[3]);
+
+
+            Swim s = new Swim(id, event, date, time);
+            swims.add(s);
+
+        }
+        br.close();
+
+        return swims;
+    }
 }

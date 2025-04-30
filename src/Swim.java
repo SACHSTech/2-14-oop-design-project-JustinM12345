@@ -33,4 +33,9 @@ public class Swim {
     public String getFormattedTime(){
         return TimeConverter.convertTime(time);
     }
+
+    public String toString(){
+        return "ID: " + swimmerID + " | Time: " + TimeConverter.convertTime(time);
+        
+    }
 }

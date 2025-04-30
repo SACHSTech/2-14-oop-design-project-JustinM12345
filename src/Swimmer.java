@@ -30,7 +30,7 @@ public class Swimmer extends Person{
         Swim fastestSwim = null;
         for (Swim s: swimHistory){
             if (s.getEvent().equals(event)){
-                if (s.getTime() < fastestSwim.getTime()){
+                if (fastestSwim == null || s.getTime() < fastestSwim.getTime()){
                     fastestSwim = s;
                 }
             }
@@ -52,8 +52,8 @@ public class Swimmer extends Person{
     // Considered for pro program
 
     public String toString(){
-        return getFirstName() + " " + getLastName() + " | Age: " + getAge() 
-        + " | Nationality: " + getCountry() + " | Favourite Event: " + favEvent 
+        return "ID: " + swimmerID + " | " + getFirstName() + " " + getLastName() + " | Age: " + getAge() 
+        + " | Gender: " + getGender() + " | Nationality: " + getCountry() + " | Favourite Event: " + favEvent 
         + " | Fastest Swim: " + getFastestSwim(favEvent);
     }
 }

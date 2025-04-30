@@ -2,11 +2,20 @@ import java.util.ArrayList;
 
 public class Event {
     
-    private SwimEvent eventType;
+    private String eventType;
+    private String gender;
     private ArrayList<Swimmer> swimmers;
 
-    public Event (SwimEvent eventType){
-        this.eventType = eventType;
+    public Event (SwimEvent eventType, String gender){
+        if (eventType.equals(SwimEvent.Freestyle_100)){
+            this.eventType = "100m Freestyle";
+        }
+        if (gender.equals("Male")){
+            this.gender = "Mens";
+        }
+        else if (gender.equals("Female")){
+            this.gender = "Womens";
+        }
 
         swimmers = new ArrayList<Swimmer>();
     }
@@ -15,8 +24,12 @@ public class Event {
         swimmers.add(s);
     }
 
-    public SwimEvent getEvent(){
+    public String getEvent(){
         return eventType;
+    }
+
+    public String getGender(){
+        return gender;
     }
 
     public ArrayList<Swimmer> getSwimmers(){
@@ -27,5 +40,9 @@ public class Event {
         for (Swimmer s: swimmers){
             System.out.println(s);
         }
+    }
+
+    public String toString(){
+        return gender + " " + eventType;
     }
 }
