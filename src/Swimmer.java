@@ -26,7 +26,30 @@ public class Swimmer extends Person{
         return favEvent;
     }
 
+    public Swim getFastestSwim(SwimEvent event){
+        Swim fastestSwim = null;
+        for (Swim s: swimHistory){
+            if (s.getEvent().equals(event)){
+                if (s.getTime() < fastestSwim.getTime()){
+                    fastestSwim = s;
+                }
+            }
+        }
+        return fastestSwim;
+    }
+
+    public ArrayList<Swim> sortFastToSlow(){
+        ArrayList<Swim> fastToSlow = new ArrayList<Swim>();
+        ArrayList copyArray = (ArrayList)swimHistory.clone(); 
+    }
+
+    public ageGroup getAgeGroup(){
+        return null;
+    }
+
+    // isSwimmingFavourite
+
+    // Considered for pro program
+
     
-
-
 }
