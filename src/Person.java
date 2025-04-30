@@ -3,15 +3,15 @@ public class Person {
     private String firstName;
     private String lastName;
     private String gender;
-    private int age;
+    private int birthYear;
     private int height;
     private String country;
 
-    public Person(String firstName, String lastName, String gender, int age, int height, String country){
+    public Person(String firstName, String lastName, String gender, int birthYear, int height, String country){
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-        this.age = age;
+        this.birthYear = birthYear;
         this.height = height;
         this.country = country;
 
@@ -29,8 +29,12 @@ public class Person {
         return gender;
     }
 
+    public int getBirthYear(){
+        return birthYear;
+    }
+
     public int getAge(){
-        return age;
+        return 2025 - birthYear;
     }
 
     public int getHeight(){

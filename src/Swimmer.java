@@ -6,8 +6,8 @@ public class Swimmer extends Person{
     private SwimEvent favEvent;
     private ArrayList<Swim> swimHistory;
 
-    public Swimmer(String firstName, String lastName, String gender, int age, int height, String country, int swimmerID, SwimEvent favEvent){
-        super(firstName, lastName, gender, age, height, country);
+    public Swimmer(String firstName, String lastName, String gender, int birthYear, int height, String country, int swimmerID, SwimEvent favEvent){
+        super(firstName, lastName, gender, birthYear, height, country);
         this.swimmerID = swimmerID;
         this.favEvent = favEvent;
         

@@ -28,31 +28,23 @@ Person
 - Has general info about the person
 - Name, age, gender, height (in centimeters), country
 
-swimInfo
-- swimInfo(SwimmerID, eventName, date swam, time)
+swim
+- swim(SwimmerID, eventName, date swam, time)
 - getters for each
 - swim time will be in seconds categorized as a double.
 - Will need to create some type of time converter so 125.32 seconds is converted to 2:05.32 as a time
 - For now, set dates as a string in the format dd-mm-yy
 - If i have enough extra time the date can be converted into a better system that can sort times by date, get most recent swim, etc, but for now that's too much
 
-swimTimes
-- collection of swimInfos for a swimmer
-- getFastestTime, swimmer can have multiple times for same event, get fastest time
-- getSwimsForEvent, get the swims for a specific event
-- getAllSwims, lists every swim the swimmer ever swam
-
-clubInfo
-- swimmers are part of a club
-- 
-
 Swimmer
 - Inherits from person object
 - swimmerID, What club they are from, favourite event
+- Collection of swims in swimhistory
 - getAgeGroup
     - 10 and under, 11-12, 13-14, 15-16, 17-18, 18+
 - IsSwimmingFavourite
 - Swimmer will have a collection of swimTimes
+- Have ways to sort and list through swimhistory
 
 Event
 - Name of the event (100 freestyle)
