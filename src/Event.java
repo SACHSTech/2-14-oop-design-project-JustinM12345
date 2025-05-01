@@ -10,6 +10,9 @@ public class Event {
         if (eventType.equals(SwimEvent.Freestyle_100)){
             this.eventType = "100m Freestyle";
         }
+        else{
+            System.out.println("200m free");
+        }
         if (gender.equals("Male")){
             this.gender = "Mens";
         }
@@ -43,7 +46,7 @@ public class Event {
     }
 
     public void createHeatSheet(){
-        
+
     }
 
     public String toString(){
