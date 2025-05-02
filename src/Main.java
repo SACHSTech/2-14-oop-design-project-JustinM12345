@@ -86,17 +86,53 @@ public class Main {
 
         while(runningProgram){
             System.out.println("Swim Meet Manager\nManage swimmers, events, and race results!\nDeveloped by Justin M\n-----------------------------------------");
-            System.out.println("Which of the following options would you like to do?\n1. List all swimmers\n2. Add a new swimmer\n3. Add a swim result to a swimmer\n4. View heat sheet for an event\n5. View a swimmer's fastest swim\n6. View a swimmer's swim history (fast to slow)\n7. Check a swimmer's pro potential\n8. List all swimmers (fastest to slowest)\n9. Exit program");
+            System.out.print("Which of the following options would you like to do?\n1. List all swimmers\n2. Add a new swimmer\n3. Add a swim result to a swimmer\n4. View heat sheet for an event\n5. View a swimmer's fastest swim\n6. View a swimmer's swim history (fast to slow)\n7. Check a swimmer's pro potential\n8. List all swimmers (fastest to slowest)\n9. Exit program\nInput your choice:");
 
             userChoice = Integer.parseInt(keyboard.readLine());
 
             switch (userChoice) {
                 case 1:
                 //List all swimmers
+                System.out.print("Which of the following groups do you want to display?\n1. Age Group Swimmers\n2. Professional Swimmers\nInput your choice:");
+                userChoice = Integer.parseInt(keyboard.readLine());
+                switch (userChoice) {
+                    case 1:
+                    // Age group Swimmers 
+                    mens_200m_freestyle.listSwimmers(); 
+                        break;
+
+                    case 2:
+                    // Professional Swimmers
+                    mens_100m_freestyle.listSwimmers();
+                        break;
+
+                    default:
+                    System.out.println("Invalid option");
+                        break;
+                }
+
                     break;
 
                 case 2:
                 //Add a new swimmer
+                System.out.print("Which of the following groups do you want to add a swimmer to?\n1. Age Group Swimmers\n2. Professional Swimmers\nInput your choice:");
+                userChoice = Integer.parseInt(keyboard.readLine());
+                switch (userChoice) {
+                    case 1:
+                    // Age group swimmers
+                    mens_200m_freestyle.addSwimmer(AddingInfo.addSwimmer(mens_200m_freestyle));
+                    mens_200m_freestyle.listSwimmers();
+                        break;
+
+                    case 2:
+                    // Professional swimmers
+
+                        break;
+                
+                    default:
+                    System.out.println("Invalid option");
+                        break;
+                }
                     break;
 
                 case 3:
@@ -130,6 +166,7 @@ public class Main {
                     break;
                 
                 default:
+                System.out.println("Invalid option");
                     break;
             }
 
