@@ -142,10 +142,47 @@ public class Main {
                 userChoice = Integer.parseInt(keyboard.readLine());
                 switch (userChoice) {
                     case 1:
-                        
-                        break;
+                    // Age group Swimmers
+                    int addingID;
+                    Swimmer selectedSwimmer = null;
+
+                    System.out.println("These are the swimmers currently in the group");
+                    mens_200m_freestyle.listSwimmers();
+                    System.out.print("Please enter the ID of the swimmer: ");
+                    addingID = Integer.parseInt(keyboard.readLine());
+                    for (Swimmer s : mens_200m_freestyle.getSwimmers()) {
+                        if (s.getID() == addingID) {
+                            selectedSwimmer = s;
+                            break;
+                        }
+                    }
+                    selectedSwimmer.addSwim(AddingInfo.addSwim(addingID));
+                    System.out.println("Updated history of swims");
+                    for (Swim s: selectedSwimmer.getSwims()){
+                        System.out.println(s);
+                    }
+                    break;
 
                     case 2:
+                    // Professional Swimmers
+                        int addingID;
+                        Swimmer selectedSwimmer = null;
+
+                        System.out.println("These are the swimmers currently in the group");
+                        mens_200m_freestyle.listSwimmers();
+                        System.out.print("Please enter the ID of the swimmer: ");
+                        addingID = Integer.parseInt(keyboard.readLine());
+                        for (Swimmer s : mens_200m_freestyle.getSwimmers()) {
+                            if (s.getID() == addingID) {
+                                selectedSwimmer = s;
+                                break;
+                            }
+                        }
+                        selectedSwimmer.addSwim(AddingInfo.addSwim(addingID));
+                        System.out.println("Updated history of swims");
+                        for (Swim s: selectedSwimmer.getSwims()){
+                            System.out.println(s);
+                        }
 
                         break;
                 

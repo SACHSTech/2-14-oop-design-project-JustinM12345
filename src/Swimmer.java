@@ -26,6 +26,10 @@ public class Swimmer extends Person{
         return favEvent;
     }
 
+    public ArrayList<Swim> getSwims(){
+        return swimHistory;
+    }
+
     public Swim getFastestSwim(SwimEvent event){
         Swim fastestSwim = null;
         for (Swim s: swimHistory){
