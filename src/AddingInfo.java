@@ -28,9 +28,8 @@ public class AddingInfo {
         birthYear = Integer.parseInt(keyboard.readLine());
         System.out.print("Height in cm: ");
         height = Integer.parseInt(keyboard.readLine());
-        System.out.println("Enter your favourite event (e.g. Freestyle_100). Choose from:");
         while (!validEvent) {
-            System.out.println("Enter your favourite event (e.g., Freestyle_100). Choose from:");
+            System.out.println("Enter your favourite event (e.g. Freestyle_100). Choose from:");
             for (SwimEvent e : SwimEvent.values()) {
                 System.out.println(" - " + e.name());
             }

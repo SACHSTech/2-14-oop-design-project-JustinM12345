@@ -121,12 +121,13 @@ public class Main {
                     case 1:
                     // Age group swimmers
                     mens_200m_freestyle.addSwimmer(AddingInfo.addSwimmer(mens_200m_freestyle));
-                    mens_200m_freestyle.listSwimmers();
+                    System.out.println("Swimmer successfully added!");
                         break;
 
                     case 2:
                     // Professional swimmers
-
+                    mens_100m_freestyle.addSwimmer(AddingInfo.addSwimmer(mens_100m_freestyle));
+                    System.out.println("Swimmer successfully added!");
                         break;
                 
                     default:
@@ -137,6 +138,21 @@ public class Main {
 
                 case 3:
                 //Add a swim result to a swimmer
+                System.out.print("Which of the following groups is the swimmer in?\n1. Age Group Swimmers\n2. Professional Swimmers\nInput your choice:");
+                userChoice = Integer.parseInt(keyboard.readLine());
+                switch (userChoice) {
+                    case 1:
+                        
+                        break;
+
+                    case 2:
+
+                        break;
+                
+                    default:
+                    System.out.println("Invalid option");
+                        break;
+                }
                     break;
 
                 case 4:
