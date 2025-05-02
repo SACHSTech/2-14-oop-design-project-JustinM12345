@@ -14,13 +14,12 @@ public class Main {
         ArrayList<Swim> ageGroupSwims = SwimFileReader.readSwims("ageGroupSwims.csv");
 
 
+        //--------------------------------- Professional swimmers csv--------------------------------
         // Add all swims to swimmers
         for (Swimmer s : champSwimmers) {
             for (Swim x: champSwimCollection) {
                 if (s.getID() == x.getID()){
                     s.addSwim(x);
-
-                    //System.out.println("Added swim " + x + " for swimmer: " + s.getName());
                 }
             }
         }
@@ -28,17 +27,10 @@ public class Main {
         // Creating event
         Event mens_100m_freestyle = new Event(SwimEvent.Freestyle_100, "Male");
 
-        System.out.println(mens_100m_freestyle);
-
         // Adding all swimmers to event
         for (Swimmer s: champSwimmers){
             mens_100m_freestyle.addSwimmer(s);
-
-            System.out.println("Added swimmer " + s.getName());
-            System.out.println("Pro swimmer?: " + s.proPotential());
         }
-
-        mens_100m_freestyle.createHeatSheet();
 
         //------------------------------------------------------------ Age group swimmers csv -------------------------------------------
 
@@ -47,21 +39,8 @@ public class Main {
             for (Swim x: ageGroupSwims) {
                 if (s.getID() == x.getID()){
                     s.addSwim(x);
-
-                    //System.out.println("Added swim " + x + " for swimmer: " + s.getName());
                 }
             }
-        }
-
-        // Printing out each swimmers' swims 
-        for (Swimmer s: ageGroupSwimmers){
-            ArrayList<Swim> swimsSorted= s.sortFastToSlow();
-            System.out.println("Swims sorted from fastest to slowest for " + s.getName());
-            for (Swim x: swimsSorted){
-                System.out.println(x);
-            }
-            System.out.println("Potential to become pro?: " + s.proPotential());
-            System.out.println("-----------------------------------------------");
         }
 
         // Creating event
@@ -70,13 +49,7 @@ public class Main {
         // Adding all swimmers to event
         for (Swimmer s: ageGroupSwimmers){
             mens_200m_freestyle.addSwimmer(s);
-
-            //System.out.println("Added swimmer " + s.getName());
         }
-
-        //mens_200m_freestyle.listSwimmers();
-
-        mens_200m_freestyle.createHeatSheet();
 
         // -------User interface-----------------------------------------------------------------
 
@@ -89,7 +62,7 @@ public class Main {
             Swimmer selectedSwimmer = null;
 
             System.out.println("Swim Meet Manager\nManage swimmers, events, and race results!\nDeveloped by Justin M\n-----------------------------------------");
-            System.out.print("Which of the following options would you like to do?\n1. List all swimmers\n2. Add a new swimmer\n3. Add a swim result to a swimmer\n4. View heat sheet for an event\n5. View a swimmer's fastest swim\n6. View a swimmer's swim history (fast to slow)\n7. Check a swimmer's pro potential\n8. List all swimmers (fastest to slowest)\n9. Exit program\nInput your choice: ");
+            System.out.print("Which of the following options would you like to do?\n1. List all swimmers\n2. Add a new swimmer\n3. Add a swim result to a swimmer\n4. View heat sheet for an event\n5. View a swimmer's fastest swim\n6. View a swimmer's swim history (fast to slow)\n7. Check a swimmer's pro potential (Based on favourite swim)\n8. List all swimmers (fastest to slowest)\n9. Exit program\nInput your choice: ");
 
             userChoice = Integer.parseInt(keyboard.readLine());
 
@@ -229,7 +202,7 @@ public class Main {
                     break;
 
                     case 2:
-                    // Professional swmimers
+                    // Professional swimmers
                     System.out.println("These are the swimmers currently in the group");
                     mens_100m_freestyle.listSwimmers();
                     System.out.print("Please enter the ID of the swimmer: ");
@@ -250,10 +223,89 @@ public class Main {
 
                 case 6:
                 //View a swimmer's swim history
+                System.out.print("Which of the following groups is the swimmer in?\n1. Age Group Swimmers\n2. Professional Swimmers\nInput your choice:");
+                userChoice = Integer.parseInt(keyboard.readLine());
+                switch (userChoice) {
+                    case 1:
+                    // Age group Swimmers
+                    System.out.println("These are the swimmers currently in the group");
+                    mens_200m_freestyle.listSwimmers();
+                    System.out.print("Please enter the ID of the swimmer: ");
+                    addingID = Integer.parseInt(keyboard.readLine());
+                    for (Swimmer s : mens_200m_freestyle.getSwimmers()) {
+                        if (s.getID() == addingID) {
+                            selectedSwimmer = s;
+                            break;
+                        }
+                    }
+                    for(Swim s: selectedSwimmer.sortFastToSlow()){
+                        System.out.println(s);
+                    }
+                    break;
+
+                    case 2:
+                    // Professional swimmers
+                    System.out.println("These are the swimmers currently in the group");
+                    mens_100m_freestyle.listSwimmers();
+                    System.out.print("Please enter the ID of the swimmer: ");
+                    addingID = Integer.parseInt(keyboard.readLine());
+                    for (Swimmer s : mens_100m_freestyle.getSwimmers()) {
+                        if (s.getID() == addingID) {
+                            selectedSwimmer = s;
+                            break;
+                        }
+                    }
+                    for(Swim s: selectedSwimmer.sortFastToSlow()){
+                        System.out.println(s);
+                    }
+                    break;
+
+                    default:
+                    System.out.println("Invalid option");
+                        break;
+                }
                     break;
 
                 case 7:
                 //Check a swimmer's pro potential
+                System.out.print("Which of the following groups is the swimmer in?\n1. Age Group Swimmers\n2. Professional Swimmers\nInput your choice:");
+                userChoice = Integer.parseInt(keyboard.readLine());
+                switch (userChoice) {
+                    case 1:
+                    // Age group Swimmers
+                    System.out.println("These are the swimmers currently in the group");
+                    mens_200m_freestyle.listSwimmers();
+                    System.out.print("Please enter the ID of the swimmer: ");
+                    addingID = Integer.parseInt(keyboard.readLine());
+                    for (Swimmer s : mens_200m_freestyle.getSwimmers()) {
+                        if (s.getID() == addingID) {
+                            selectedSwimmer = s;
+                            break;
+                        }
+                    }
+                    System.out.println("Does this swimmer have potential to be pro?: " + selectedSwimmer.proPotential());
+                    break;
+
+                    case 2:
+                    // Professional swimmers
+                    System.out.println("These are the swimmers currently in the group");
+                    mens_100m_freestyle.listSwimmers();
+                    System.out.print("Please enter the ID of the swimmer: ");
+                    addingID = Integer.parseInt(keyboard.readLine());
+                    for (Swimmer s : mens_100m_freestyle.getSwimmers()) {
+                        if (s.getID() == addingID) {
+                            selectedSwimmer = s;
+                            break;
+                        }
+                    }
+                    System.out.println("Does this swimmer have potential to be pro?: " + selectedSwimmer.proPotential());
+                    break;
+
+                    default:
+                    System.out.println("Invalid option");
+                        break;
+                }
+
                     break;
 
                 case 8:

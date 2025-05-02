@@ -85,7 +85,7 @@ public class Swimmer extends Person{
     }
 
     // Considered for pro program
-    public boolean proPotential() {
+    public String proPotential() {
         SwimEvent fav = getFavEvent();
         Swim fastest = getFastestSwim(fav);
         int age = getAge();
@@ -104,10 +104,21 @@ public class Swimmer extends Person{
                 benchmark = 111.0; 
             }
         } else {
-            return false; // Currently don't have other events as it will become too cluttered
+            return "Currently don't have other events as it will become too cluttered";
         }
     
-        return fastest.getTime() <= benchmark;
+        if (fastest.getTime() <= benchmark){
+            return "Yes";
+        }
+
+        else if(fastest.getTime() - 2 <= benchmark){
+            return "Slightly Possible ";
+        }
+        else{
+            return "Highly Unlikely";
+        }
+
+
     }
     
 
