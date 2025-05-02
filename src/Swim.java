@@ -35,7 +35,7 @@ public class Swim {
     }
 
     public String toString(){
-        return "ID: " + swimmerID + " | Time: " + TimeConverter.convertTime(time);
-        
+        return "Date: " + date + " | Time: " + TimeConverter.convertTime(time);
+
     }
 }

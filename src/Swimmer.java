@@ -38,10 +38,26 @@ public class Swimmer extends Person{
         return fastestSwim;
     }
 
-    // public ArrayList<Swim> sortFastToSlow(){
-    //     ArrayList<Swim> fastToSlow = new ArrayList<Swim>();
-    //     ArrayList copyArray = (ArrayList)swimHistory.clone(); 
-    // }
+    public ArrayList<Swim> sortFastToSlow(){
+        ArrayList<Swim> orderedList = new ArrayList<Swim>();
+        ArrayList<Swim> cloneList = (ArrayList<Swim>)swimHistory.clone();
+        
+        while (cloneList.size() > 0) {
+            double fastestTime = 100000000;
+            Swim fastestSwim = null;
+
+            for (Swim s: cloneList){
+                if (s.getTime() < fastestTime){
+                    fastestTime = s.getTime();
+                    fastestSwim = s;
+                }
+            }   
+            orderedList.add(fastestSwim);
+            cloneList.remove(fastestSwim);
+        }
+
+        return orderedList;
+    }
 
     // public ageGroup getAgeGroup(){
     //     return null;

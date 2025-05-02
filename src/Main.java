@@ -37,6 +37,8 @@ public class Main {
 
         mens_100m_freestyle.listSwimmers();
 
+        //------------------------------------------------------------ Age group swimmers csv -------------------------------------------
+
         // Add all swims to swimmers
         for (Swimmer s : ageGroupSwimmers) {
             for (Swim x: ageGroupSwims) {
@@ -45,6 +47,15 @@ public class Main {
 
                     System.out.println("Added swim " + x + " for swimmer: " + s.getName());
                 }
+            }
+        }
+
+        // Printing out each swimmers' swims 
+        for (Swimmer s: ageGroupSwimmers){
+            ArrayList<Swim> swimsSorted= s.sortFastToSlow();
+            System.out.println("Swims sorted from fastest to slowest for " + s.getName());
+            for (Swim x: swimsSorted){
+                System.out.println(x);
             }
         }
 
@@ -63,6 +74,8 @@ public class Main {
         mens_200m_freestyle.listSwimmers();
 
         mens_200m_freestyle.createHeatSheet();
+
+
 
 
 
