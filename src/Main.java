@@ -18,7 +18,7 @@ public class Main {
                 if (s.getID() == x.getID()){
                     s.addSwim(x);
 
-                    System.out.println("Added swim " + x + " for swimmer: " + s.getName());
+                    //System.out.println("Added swim " + x + " for swimmer: " + s.getName());
                 }
             }
         }
@@ -33,9 +33,10 @@ public class Main {
             mens_100m_freestyle.addSwimmer(s);
 
             System.out.println("Added swimmer " + s.getName());
+            System.out.println("Pro swimmer?: " + s.proPotential());
         }
 
-        mens_100m_freestyle.listSwimmers();
+        mens_100m_freestyle.createHeatSheet();
 
         //------------------------------------------------------------ Age group swimmers csv -------------------------------------------
 
@@ -45,7 +46,7 @@ public class Main {
                 if (s.getID() == x.getID()){
                     s.addSwim(x);
 
-                    System.out.println("Added swim " + x + " for swimmer: " + s.getName());
+                    //System.out.println("Added swim " + x + " for swimmer: " + s.getName());
                 }
             }
         }
@@ -57,21 +58,21 @@ public class Main {
             for (Swim x: swimsSorted){
                 System.out.println(x);
             }
+            System.out.println("Potential to become pro?: " + s.proPotential());
+            System.out.println("-----------------------------------------------");
         }
 
         // Creating event
         Event mens_200m_freestyle = new Event(SwimEvent.Freestyle_200, "Male");
 
-        System.out.println(mens_200m_freestyle);
-
         // Adding all swimmers to event
         for (Swimmer s: ageGroupSwimmers){
             mens_200m_freestyle.addSwimmer(s);
 
-            System.out.println("Added swimmer " + s.getName());
+            //System.out.println("Added swimmer " + s.getName());
         }
 
-        mens_200m_freestyle.listSwimmers();
+        //mens_200m_freestyle.listSwimmers();
 
         mens_200m_freestyle.createHeatSheet();
 

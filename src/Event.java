@@ -90,11 +90,11 @@ public class Event {
 
         System.out.println("HEAT SHEET");
         System.out.println(gender + " " + eventName);
-        System.out.printf("%-6s %-15s %-5s %-10s %-15s%n", "RANK", "ATHLETE", "AGE", "COUNTRY", "SEED TIME");
-        System.out.println("-----------------------------------------------------");
+        System.out.printf("%-6s %-20s %-5s %-15s %-15s%n", "RANK", "ATHLETE", "AGE", "COUNTRY", "SEED TIME");
+        System.out.println("--------------------------------------------------------------");
 
         for (Swimmer s : orderedList) {
-            System.out.printf("%-6d %-15s %-5s %-10s %-15s %n", 
+            System.out.printf("%-6d %-20s %-5s %-15s %-15s %n", 
                             i, 
                             s.getName(), 
                             s.getAge(),
