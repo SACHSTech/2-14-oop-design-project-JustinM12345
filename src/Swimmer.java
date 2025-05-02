@@ -85,23 +85,22 @@ public class Swimmer extends Person{
         SwimEvent fav = getFavEvent();
         Swim fastest = getFastestSwim(fav);
         int age = getAge();
-    
         double benchmark = 0.0;
     
         if (fav == SwimEvent.Freestyle_100) {
             if (age <= 18) {
-                benchmark = 51.0 + (18 - age); // More lenient for younger swimmers
+                benchmark = 51.0 + (18 - age); // 51 second benchmark for younger swimmers
             } else {
-                benchmark = 50.0; // Stricter for older swimmers
+                benchmark = 50.0; 
             }
         } else if (fav == SwimEvent.Freestyle_200) {
             if (age <= 18) {
-                benchmark = 112.0 + (18 - age); // ~1:52 base plus buffer
+                benchmark = 112.0 + (18 - age); // 1:52 benchmark
             } else {
-                benchmark = 111.0; // Stricter for older swimmers
+                benchmark = 111.0; 
             }
         } else {
-            return false; // Not applicable for other events
+            return false; // Currently don't have other events as it will become too cluttered
         }
     
         return fastest.getTime() <= benchmark;
