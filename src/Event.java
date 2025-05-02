@@ -44,10 +44,24 @@ public class Event {
         return swimmers;
     }
 
+    public int getNumSwimmers(){
+        return swimmers.size();
+    }
+
     public void listSwimmers(){
         for (Swimmer s: swimmers){
             System.out.println(s);
         }
+    }
+
+    public int numSwimmingFavourite(){
+        int x = 0;
+        for (Swimmer s: swimmers){
+            if (s.getFavEvent().equals(eventType)){
+                x++;
+            }
+        }
+        return x;
     }
 
     public ArrayList<Swimmer> listFastestToSlowest(){
