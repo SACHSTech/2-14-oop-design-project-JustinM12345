@@ -62,6 +62,8 @@ public class Main {
 
         mens_200m_freestyle.listSwimmers();
 
+        mens_200m_freestyle.createHeatSheet();
+
 
 
 
