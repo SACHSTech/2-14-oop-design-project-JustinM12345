@@ -113,7 +113,6 @@ public class Swimmer extends Person{
 
     public String toString(){
         return "ID: " + swimmerID + " | " + getFirstName() + " " + getLastName() + " | Age: " + getAge() 
-        + " | Gender: " + getGender() + " | Nationality: " + getCountry() + " | Favourite Event: " + favEvent 
-        + " | Fastest Swim: " + getFastestSwim(favEvent);
+        + " | Gender: " + getGender() + " | Nationality: " + getCountry() + " | Favourite Event: " + favEvent;
     }
 }
