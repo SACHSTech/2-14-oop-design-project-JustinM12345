@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Main {
@@ -6,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws IOException{
         
         // Reading csv files and using swimfilereader to create arraylist of objects
-        ArrayList<Swimmer> champSwimmers = SwimFileReader.readSwimmers("swimmers.csv");
-        ArrayList<Swim> champSwimCollection = SwimFileReader.readSwims("swims.csv");
+        ArrayList<Swimmer> champSwimmers = SwimFileReader.readSwimmers("proSwimmers.csv");
+        ArrayList<Swim> champSwimCollection = SwimFileReader.readSwims("proSwims.csv");
         ArrayList<Swimmer> ageGroupSwimmers = SwimFileReader.readSwimmers("ageGroupSwimmers.csv");
         ArrayList<Swim> ageGroupSwims = SwimFileReader.readSwims("ageGroupSwims.csv");
 
@@ -76,7 +78,64 @@ public class Main {
 
         mens_200m_freestyle.createHeatSheet();
 
+        // -------User interface-----------------------------------------------------------------
 
+        boolean runningProgram = true;
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        int userChoice;
+
+        while(runningProgram){
+            System.out.println("Swim Meet Manager\nManage swimmers, events, and race results!\nDeveloped by Justin M\n-----------------------------------------");
+            System.out.println("Which of the following options would you like to do?\n1. List all swimmers\n2. Add a new swimmer\n3. Add a swim result to a swimmer\n4. View heat sheet for an event\n5. View a swimmer's fastest swim\n6. View a swimmer's swim history (fast to slow)\n7. Check a swimmer's pro potential\n8. List all swimmers (fastest to slowest)\n9. Exit program");
+
+            userChoice = Integer.parseInt(keyboard.readLine());
+
+            switch (userChoice) {
+                case 1:
+                //List all swimmers
+                    break;
+
+                case 2:
+                //Add a new swimmer
+                    break;
+
+                case 3:
+                //Add a swim result to a swimmer
+                    break;
+
+                case 4:
+                //View heat sheet for an event
+                    break;
+
+                case 5:
+                //View a swimmer's fastest swim
+                    break;
+
+                case 6:
+                //View a swimmer's swim history
+                    break;
+
+                case 7:
+                //Check a swimmer's pro potential
+                    break;
+
+                case 8:
+                //List all swimmers fastest to slowest
+                    break;
+
+                case 9:
+                //Exit
+                System.out.println("Thanks for using the program!");
+                runningProgram = false;
+                    break;
+                
+                default:
+                    break;
+            }
+
+            
+        }
+        
 
 
 
