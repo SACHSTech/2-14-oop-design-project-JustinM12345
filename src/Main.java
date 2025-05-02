@@ -310,6 +310,28 @@ public class Main {
 
                 case 8:
                 //List all swimmers fastest to slowest
+                System.out.print("Which of the following groups do you want to display?\n1. Age Group Swimmers\n2. Professional Swimmers\nInput your choice:");
+                userChoice = Integer.parseInt(keyboard.readLine());
+                switch (userChoice) {
+                    case 1:
+                    // Age group Swimmers 
+                    for (Swimmer s: mens_200m_freestyle.listFastestToSlowest()){
+                        System.out.println(s);
+                    } 
+                        break;
+
+                    case 2:
+                    // Professional Swimmers
+                    for (Swimmer s: mens_100m_freestyle.listFastestToSlowest()){
+                        System.out.println(s);
+                    }
+                        break;
+
+                    default:
+                    System.out.println("Invalid option");
+                        break;
+                }
+
                     break;
 
                 case 9:
