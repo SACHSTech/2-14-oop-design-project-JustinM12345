@@ -1,16 +1,29 @@
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * A utility class for reading swimmer and swim data from CSV files
+ * and converting them into object lists.
+ * 
+ * @author Justin M
+ */
 public class SwimFileReader {
     
-    public static ArrayList<Swimmer> readSwimmers (String swimmersFile) throws IOException{
+    /**
+     * Reads swimmer data from a CSV file and creates a list of Swimmer objects.
+     *
+     * @param swimmersFile the name of the CSV file containing swimmer data
+     * @return an ArrayList of Swimmer objects
+     * @throws IOException if the file is not found or cannot be read
+     */
+    public static ArrayList<Swimmer> readSwimmers(String swimmersFile) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("src/" + swimmersFile));
         ArrayList<Swimmer> swimmers = new ArrayList<>();
 
         String line;
-        br.readLine(); 
+        br.readLine(); // skip header
 
-        //Reads the swimmers.csv file until the end, seperating each value by their commas and creating a new object that categorizes it.
+        // Reads each line and splits the values by commas to construct a Swimmer
         while ((line = br.readLine()) != null) {
             String[] parts = line.split(",");
 
@@ -25,21 +38,27 @@ public class SwimFileReader {
 
             Swimmer swimmer = new Swimmer(id, first, last, gender, year, height, country, favEvent);
             swimmers.add(swimmer);
-
         }
         br.close();
 
         return swimmers;
     }
 
-    public static ArrayList<Swim> readSwims (String swimsFile) throws IOException{
+    /**
+     * Reads swim result data from a CSV file and creates a list of Swim objects.
+     *
+     * @param swimsFile the name of the CSV file containing swim result data
+     * @return an ArrayList of Swim objects
+     * @throws IOException if the file is not found or cannot be read
+     */
+    public static ArrayList<Swim> readSwims(String swimsFile) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("src/" + swimsFile));
         ArrayList<Swim> swims = new ArrayList<>();
 
         String line;
-        br.readLine(); 
+        br.readLine(); // skip header
 
-        //Reads the swimmers.csv file until the end, seperating each value by their commas and creating a new object that categorizes it.
+        // Reads each line and splits the values by commas to construct a Swim
         while ((line = br.readLine()) != null) {
             String[] parts = line.split(",");
 
@@ -48,10 +67,8 @@ public class SwimFileReader {
             String date = parts[2];
             double time = Double.parseDouble(parts[3]);
 
-
             Swim s = new Swim(id, event, date, time);
             swims.add(s);
-
         }
         br.close();
 

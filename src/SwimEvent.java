@@ -1,3 +1,8 @@
+/**
+ * Enums for all possible individual swimming events
+ * 
+ * @author Justin M
+ */
 public enum SwimEvent {
     // Freestyle
     Freestyle_50,

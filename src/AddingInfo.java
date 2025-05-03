@@ -2,8 +2,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Utility class for interactively adding swimmer and swim information through user input
+ * 
+ * @author Justin M 
+ */
 public class AddingInfo {
     
+    /**
+     * Prompts the user for swimmer details and creates a swimmer object.
+     * 
+     * It uses the number of swimmers already in the given collection to assign a new ID.
+     * 
+     * @param event the current event to determine the number of current swimmers
+     * @return a newly created swimmer object with the inputted information
+     * @throws IOException if an input error occurs
+     */
     public static Swimmer addSwimmer(Event event) throws IOException{
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
         int swimmerID = event.getNumSwimmers() + 1;
@@ -56,6 +70,13 @@ public class AddingInfo {
 
     }
 
+    /**
+     * Prompts the user to input swim information for a swimmer, including event, date, and time.
+     *
+     * @param swimmerID the unique ID of the swimmer to associate with the swim
+     * @return a new swim object with user-provided data
+     * @throws IOException if an input error occurs
+     */
     public static Swim addSwim(int swimmerID) throws IOException{
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
         SwimEvent event = null;
