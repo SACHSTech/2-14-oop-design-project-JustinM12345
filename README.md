@@ -3,7 +3,8 @@
 
 See instructions [here](INSTRUCTIONS.md) for details.
 
-*INSERT UML CLASS DIAGRAM HERE*  
+*UML DIAGRAM*
+#### ![UML Diagram](SwimMeetManager.drawio.png)
 
 # Swimmer Mangement System / Swim Meet Manager 
 
