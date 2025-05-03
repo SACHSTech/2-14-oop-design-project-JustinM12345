@@ -220,6 +220,7 @@ public class Main {
                     System.out.println("Invalid option");
                         break;
                 }
+                    break;
 
                 case 6:
                 //View a swimmer's swim history
